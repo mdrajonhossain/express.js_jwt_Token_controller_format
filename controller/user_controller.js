@@ -8,11 +8,9 @@ var jwt = require('jsonwebtoken');
 		return res.json({
 			"Username": req.username,
 			"Message": req.message,
-			"token": req.token,
-			"asdfasfd": "sadfasdf"
+			"token": req.token
 		})
-
-}
+	}
 
 
 
@@ -26,6 +24,11 @@ var jwt = require('jsonwebtoken');
 		})
 
 }
+
+
+
+
+
 
 
 
