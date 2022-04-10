@@ -13,20 +13,20 @@ router.get('/', user_controller.root);
  
 
 router.post('/login', function(req, res, next){
+	  
 	  const token = jwt.sign({
-	  		"username": req.body.username,
-			"password": req.body.password
-	  	}, process.env.JWT_SECTRET, {
-	  		expiresIn:'10h'
-	  	});
+	  		"username": req.body.username			
+	  		}, process.env.JWT_SECTRET, {expiresIn:'10h'});
+
+
+
 
 	    return res.json({
+	    	"status": "Success",
 	     	"username": req.body.username,
 			"password": req.body.password,
 			"token": token
 	    });
-      
-
 })
 
 
@@ -56,10 +56,13 @@ const isAuthenticate = (req, res, next)=>{
 
 
 router.post('/test', isAuthenticate, function(req, res, next){
+
 		return res.json({
-			"Status": req.status,
-			"Username": req.username,
-			"password" : req.password
+			"status": req.status,
+			"profilename" : "rajonhossain",
+			"username": req.username,
+			"password" : req.password,
+			"data": [{"name": "sadfasdf"}]
 		})
 
 })
