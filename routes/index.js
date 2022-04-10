@@ -8,9 +8,7 @@ require('dotenv').config();
 
 
 router.get('/', user_controller.root);
- 
-
- 
+  
 
 router.post('/login', function(req, res, next){
 	  
@@ -28,6 +26,9 @@ router.post('/login', function(req, res, next){
 			"token": token
 	    });
 })
+
+
+
 
 
 
@@ -56,6 +57,10 @@ const isAuthenticate = (req, res, next)=>{
 
 
 router.post('/test', isAuthenticate, function(req, res, next){
+
+
+
+
 
 		return res.json({
 			"status": req.status,
